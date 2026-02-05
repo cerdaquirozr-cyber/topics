@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo: Probar Topics API (Obsoleta)</title>
+</head>
+<body>
+  <h1>Prueba de la Topics API (Privacy Sandbox)</h1>
+  <p>Esta API ya fue eliminada por Google en 2025. Haz clic para ver qué pasa ahora (debería dar error).</p>
+  
+  <button onclick="getTopics()">Probar Topics API</button>
+  <pre id="result" style="background:#f0f0f0; padding:10px; border:1px solid #ccc; white-space:pre-wrap;"></pre>
+
+  <script>
+  async function getTopics() {
+    try {
+      const topics = await document.browsingTopics();
+      document.getElementById('result').textContent = JSON.stringify(topics, null, 2);
+    } catch (err) {
+      document.getElementById('result').textContent = 'Error: ' + err.message + '\n(Probablemente la API ya está removida desde octubre 2025. Privacy Sandbox fue retirada por Google.)';
+    }
+  }
+  </script>
+
+  <p><small>Nota: Abre esto en Chrome actual (2026) para ver el error esperado. Era una propuesta para publicidad basada en intereses sin rastreo invasivo, pero no cuajó.</small></p>
+</body>
+</html>
